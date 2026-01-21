@@ -1,0 +1,17 @@
+{
+    "build": {
+      "builder": "nixpacks"
+    },
+    "deploy": {
+      "services": [
+        {
+          "type": "php",
+          "name": "mon-app-php",
+          "buildCommand": "composer install && php artisan migrate", 
+          "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT", 
+          "version": "8.2" 
+        }
+      ]
+    }
+  }
+  
