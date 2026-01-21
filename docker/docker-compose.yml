@@ -22,19 +22,14 @@ services:
     depends_on:
       - app
 
-  db:
-    image: mysql:8.0
-    container_name: gym_db
-    restart: always
+  database:
+    image: postgres:16-alpine
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword123
-      MYSQL_DATABASE: gymdb
-      MYSQL_USER: gym_user
-      MYSQL_PASSWORD: gym_password123
-    ports:
-      - "3306:3306"
+      POSTGRES_DB: app
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: !ChangeMe!
     volumes:
-      - db_data:/var/lib/mysql
+      - database_data:/var/lib/postgresql/data:rw
 
 volumes:
   db_data:
