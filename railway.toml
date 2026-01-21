@@ -1,2 +1,5 @@
+[project]
+name = "gym-backend"
+
 [build]
 php_version = "8.2"
