@@ -3,6 +3,6 @@
     "builder": "nixpacks"
   },
   "deploy": {
-    "startCommand": "php bin/console doctrine:database:wait --timeout=30 || true && php bin/console doctrine:migrations:migrate --env=prod --no-interaction && php -S 0.0.0.0:$PORT -t public"
+    "startCommand": "php bin/console doctrine:migrations:migrate --env=prod --no-interaction || true && php -S 0.0.0.0:$PORT -t public"
   }
 }
