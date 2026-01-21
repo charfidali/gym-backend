@@ -1,17 +1,8 @@
 {
-    "build": {
-      "builder": "nixpacks"
-    },
-    "deploy": {
-      "services": [
-        {
-          "type": "php",
-          "name": "mon-app-php",
-          "buildCommand": "composer install && php artisan migrate", 
-          "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT", 
-          "version": "8.2" 
-        }
-      ]
-    }
+  "build": {
+    "builder": "nixpacks"
+  },
+  "deploy": {
+    "startCommand": "php bin/console doctrine:database:wait --timeout=30 || true && php bin/console doctrine:migrations:migrate --env=prod --no-interaction && php -S 0.0.0.0:$PORT -t public"
   }
-  
+}
