@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
+echo "installing mysql driver..."
+
+install-php-extensions pdo_mysql intl
 
 echo "Running migrations..."
 
